@@ -74,19 +74,33 @@ export const StyledMainInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
   width: 100%;
 `;
 
-export const StyledInfoDetails = styled.div`
+export const InfoDetailsWrapper = styled.div`
   display: flex;
   flex: 1;
+  gap: 2rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+`;
+
+export const StyledInfoDetails = styled.div`
+  display: flex;
   justify-content: space-between;
   border: 1px solid #acaccb;
   padding: 1rem;
   background-color: #fff;
   border-radius: 8px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(23, 135, 150, 0.8);
+  }
 `;
 
 export const InfoDetailsItemWrapper = styled.div`
@@ -100,7 +114,7 @@ export const InfoDetailsItemLeft = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
 `;
 
 export const InfoDetailsItem = styled.div`
@@ -114,12 +128,24 @@ export const InfoDetailsItem = styled.div`
   }
 `;
 
-export const Divider = styled.div`
-  border-left: 3px solid #acaccb;
-  height: 80%;
-  top: 10%;
-  bottom: 10%;
-  position: relative;
+export const VisibilityItem = styled.div`
+  background: linear-gradient(135deg, #41a7c4, #267d96);
+  border-radius: 15px;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(23, 135, 150, 0.8);
+  }
 `;
 
 export const StyledForecastStats = styled.div`
@@ -131,4 +157,11 @@ export const StyledForecastStats = styled.div`
   background-color: #fff;
   border-radius: 8px;
   width: 100%;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(23, 135, 150, 0.8);
+  }
 `;

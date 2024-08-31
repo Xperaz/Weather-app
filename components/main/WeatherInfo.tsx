@@ -4,22 +4,39 @@ import Hero from "./Hero";
 import { StyledMainInfoWrapper, StyledWeatherWrapper } from "./styled";
 import WeatherDetails from "./WeatherDetails";
 import ForecastStats from "./ForecastStats";
+import Loader from "../common/Loader";
+import Error from "../common/Error";
+import CampaignMessage from "../common/CampaignMessage";
 
 const WeatherInfo = () => {
-  const { weatherData } = useWeatherContext();
+  const { weatherData, city } = useWeatherContext();
 
-  if (!weatherData) {
-    return <div>Loading...</div>;
+  if (!weatherData.currentWeather && city.length === 0) {
+    return (
+      <CampaignMessage message="Please enter a city name to get the weather details" />
+    );
+  }
+
+  if (weatherData.isLoading) {
+    return <Loader />;
+  }
+
+  if (weatherData.error) {
+    return <Error error={weatherData.error} />;
   }
 
   return (
-    <StyledWeatherWrapper>
-      <Hero currentWeatherData={weatherData.currentWeather} />
-      <StyledMainInfoWrapper>
-        <WeatherDetails currentWeatherData={weatherData.currentWeather} />
-        <ForecastStats forecastData={weatherData.forecast} />
-      </StyledMainInfoWrapper>
-    </StyledWeatherWrapper>
+    <>
+      {weatherData.currentWeather && weatherData.forecast && (
+        <StyledWeatherWrapper>
+          <Hero currentWeatherData={weatherData.currentWeather} />
+          <StyledMainInfoWrapper>
+            <WeatherDetails currentWeatherData={weatherData.currentWeather} />
+            <ForecastStats forecastData={weatherData.forecast} />
+          </StyledMainInfoWrapper>
+        </StyledWeatherWrapper>
+      )}
+    </>
   );
 };
 

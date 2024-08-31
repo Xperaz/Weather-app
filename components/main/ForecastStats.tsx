@@ -23,10 +23,6 @@ ChartJS.register(
 );
 
 const ForecastStasts = ({ forecastData }: { forecastData: any }) => {
-  if (!forecastData) {
-    return <div>Loading...</div>;
-  }
-
   const sevenDayForecast = forecastData.reduce((acc, item) => {
     const date = new Date(item.dt * 1000).toLocaleDateString();
     if (!acc[date]) {

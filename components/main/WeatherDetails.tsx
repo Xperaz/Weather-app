@@ -1,12 +1,13 @@
 import React from "react";
 import {
-  Divider,
   InfoDetailsItem,
   InfoDetailsItemLeft,
   InfoDetailsItemWrapper,
+  InfoDetailsWrapper,
   StyledInfoDetails,
+  VisibilityItem,
 } from "./styled";
-import { WiBarometer, WiHumidity } from "react-icons/wi";
+import { WiBarometer, WiDaySunny, WiHumidity } from "react-icons/wi";
 import { FiSunrise, FiSunset } from "react-icons/fi";
 
 const WeatherDetails = ({
@@ -14,10 +15,6 @@ const WeatherDetails = ({
 }: {
   currentWeatherData: any;
 }) => {
-  if (!currentWeatherData) {
-    return <div>Loading...</div>;
-  }
-
   const sunsetTime = new Date(
     currentWeatherData.sys.sunset * 1000
   ).toLocaleTimeString([], {
@@ -32,73 +29,91 @@ const WeatherDetails = ({
     minute: "2-digit",
   });
 
+  const visibility = currentWeatherData.visibility / 1000; // Convert to km
+
   return (
-    <StyledInfoDetails>
-      <InfoDetailsItemLeft>
-        <InfoDetailsItemWrapper>
-          <WiHumidity
-            style={{
-              fontSize: "5em",
-              color: "#7284ff",
-              fontWeight: 700,
-              lineHeight: 1,
-            }}
-          />
-          <InfoDetailsItem>
-            <p>Humidity</p>
-            <p>{currentWeatherData.main.humidity}%</p>
-          </InfoDetailsItem>
-        </InfoDetailsItemWrapper>
+    <InfoDetailsWrapper>
+      <StyledInfoDetails>
+        <InfoDetailsItemLeft>
+          <InfoDetailsItemWrapper>
+            <WiHumidity
+              style={{
+                fontSize: "5em",
+                color: "#7284ff",
+                fontWeight: 700,
+                lineHeight: 1,
+              }}
+            />
+            <InfoDetailsItem>
+              <p>Humidity</p>
+              <p>{currentWeatherData.main.humidity}%</p>
+            </InfoDetailsItem>
+          </InfoDetailsItemWrapper>
 
-        <InfoDetailsItemWrapper>
-          <WiBarometer
-            style={{
-              fontSize: "5em",
-              color: "#7284ff",
-              fontWeight: 700,
-              lineHeight: 1,
-            }}
-          />
-          <InfoDetailsItem>
-            <p>Pressure</p>
-            <p>{currentWeatherData.main.humidity}%</p>
-          </InfoDetailsItem>
-        </InfoDetailsItemWrapper>
-      </InfoDetailsItemLeft>
+          <InfoDetailsItemWrapper>
+            <WiBarometer
+              style={{
+                fontSize: "5em",
+                color: "#7284ff",
+                fontWeight: 700,
+                lineHeight: 1,
+              }}
+            />
+            <InfoDetailsItem>
+              <p>Pressure</p>
+              <p>{currentWeatherData.main.humidity}%</p>
+            </InfoDetailsItem>
+          </InfoDetailsItemWrapper>
+        </InfoDetailsItemLeft>
 
-      {/* <Divider /> */}
-      <InfoDetailsItemLeft>
-        <InfoDetailsItemWrapper>
-          <FiSunset
-            style={{
-              fontSize: "4em",
-              color: "#7284ff",
-              fontWeight: 700,
-              lineHeight: 1,
-            }}
-          />
-          <InfoDetailsItem>
-            <p>Sunset</p>
-            <p>{sunsetTime}</p>
-          </InfoDetailsItem>
-        </InfoDetailsItemWrapper>
+        <InfoDetailsItemLeft>
+          <InfoDetailsItemWrapper>
+            <FiSunset
+              style={{
+                fontSize: "4em",
+                color: "#7284ff",
+                fontWeight: 700,
+                lineHeight: 1,
+              }}
+            />
+            <InfoDetailsItem>
+              <p>Sunset</p>
+              <p>{sunsetTime}</p>
+            </InfoDetailsItem>
+          </InfoDetailsItemWrapper>
 
-        <InfoDetailsItemWrapper>
-          <FiSunrise
-            style={{
-              fontSize: "4em",
-              color: "#7284ff",
-              fontWeight: 700,
-              lineHeight: 1,
-            }}
-          />
-          <InfoDetailsItem>
-            <p>Sunrise</p>
-            <p>{sunriseTime}</p>
-          </InfoDetailsItem>
-        </InfoDetailsItemWrapper>
-      </InfoDetailsItemLeft>
-    </StyledInfoDetails>
+          <InfoDetailsItemWrapper>
+            <FiSunrise
+              style={{
+                fontSize: "4em",
+                color: "#7284ff",
+                fontWeight: 700,
+                lineHeight: 1,
+              }}
+            />
+            <InfoDetailsItem>
+              <p>Sunrise</p>
+              <p>{sunriseTime}</p>
+            </InfoDetailsItem>
+          </InfoDetailsItemWrapper>
+        </InfoDetailsItemLeft>
+      </StyledInfoDetails>
+
+      <VisibilityItem>
+        <WiDaySunny
+          style={{
+            fontSize: "4em",
+            color: "#fff",
+            fontWeight: 700,
+            lineHeight: 1,
+          }}
+        />
+        <InfoDetailsItem>
+          <p>Visibility</p>
+          <p>{visibility} km</p>
+        </InfoDetailsItem>
+      </VisibilityItem>
+    </InfoDetailsWrapper>
   );
 };
 
