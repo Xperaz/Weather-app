@@ -17,7 +17,7 @@ const WeatherInfo = () => {
       <Hero currentWeatherData={weatherData.currentWeather} />
       <StyledMainInfoWrapper>
         <WeatherDetails currentWeatherData={weatherData.currentWeather} />
-        <ForecastStats />
+        <ForecastStats forecastData={weatherData.forecast} />
       </StyledMainInfoWrapper>
     </StyledWeatherWrapper>
   );

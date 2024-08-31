@@ -74,6 +74,7 @@ export const StyledMainInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 3rem;
   flex-wrap: wrap;
   width: 100%;
 `;
@@ -119,4 +120,15 @@ export const Divider = styled.div`
   top: 10%;
   bottom: 10%;
   position: relative;
+`;
+
+export const StyledForecastStats = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  border: 1px solid #acaccb;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
 `;

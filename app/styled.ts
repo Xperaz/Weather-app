@@ -5,7 +5,6 @@ export const PublicLayout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #f8f8ff;
   margin: 0 auto;
   padding: 0 1rem;
 

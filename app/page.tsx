@@ -7,12 +7,14 @@ import Footer from "@/components/footer/Footer";
 import { WeatherProvider } from "@/context/weatherContext";
 export default function Home() {
   return (
-    <PublicLayout>
-      <WeatherProvider>
-        <Header />
-        <WeatherInfo />
-      </WeatherProvider>
+    <>
+      <PublicLayout>
+        <WeatherProvider>
+          <Header />
+          <WeatherInfo />
+        </WeatherProvider>
+      </PublicLayout>
       <Footer />
-    </PublicLayout>
+    </>
   );
 }
