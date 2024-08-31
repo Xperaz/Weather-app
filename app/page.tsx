@@ -1,6 +1,6 @@
 "use client";
 
-import { PublicLayout } from "./index";
+import { PublicLayout } from "./styled";
 import Header from "@/components/header/Header";
 import WeatherInfo from "@/components/main/WeatherInfo";
 import Footer from "@/components/footer/Footer";
@@ -12,7 +12,6 @@ export default function Home() {
         <Header />
         <WeatherInfo />
       </WeatherProvider>
-
       <Footer />
     </PublicLayout>
   );

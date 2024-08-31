@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { StyledHeader, StyledInput, StyledInputWrapper, StyledLogo } from ".";
-import { CiSearch } from "react-icons/ci";
+import {
+  StyledHeader,
+  StyledInput,
+  StyledInputWrapper,
+  StyledLogo,
+} from "./styled";
+import { FaSearch } from "react-icons/fa";
 import { useWeatherContext } from "@/context/weatherContext";
 
 const Header = () => {
-  const { city, setCity } = useWeatherContext();
-  const [inputCity, setInputCity] = useState(city);
+  const { setCity } = useWeatherContext();
+  const [inputCity, setInputCity] = useState("");
 
   const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputCity(e.target.value);
@@ -28,13 +33,15 @@ const Header = () => {
           onChange={handleCityChange}
           onKeyDown={handleKeyDown}
         />
-        <CiSearch
+        <FaSearch
           style={{
             position: "absolute",
             right: "10px",
             top: "50%",
             transform: "translateY(-50%)",
             color: "#7284ff",
+            height: "20px",
+            width: "20px",
           }}
         />
       </StyledInputWrapper>
