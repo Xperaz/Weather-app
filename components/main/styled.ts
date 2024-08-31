@@ -4,7 +4,7 @@ export const StyledWeatherWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -74,14 +74,49 @@ export const StyledMainInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
 `;
 
 export const StyledInfoDetails = styled.div`
   display: flex;
   flex: 1;
-  border: 1px solid #ccc;
+  justify-content: space-between;
+  border: 1px solid #acaccb;
   padding: 1rem;
   background-color: #fff;
   border-radius: 8px;
+`;
+
+export const InfoDetailsItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const InfoDetailsItemLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+`;
+
+export const InfoDetailsItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+`;
+
+export const Divider = styled.div`
+  border-left: 3px solid #acaccb;
+  height: 80%;
+  top: 10%;
+  bottom: 10%;
+  position: relative;
 `;
