@@ -11,11 +11,9 @@ const getWeatherIcon = (weatherDescription: string): JSX.Element | null => {
     style: { fontSize: "3em", color: "#fff", fontWeight: 700, lineHeight: 1 },
   };
 
-  switch (
-    weatherDescription.toLowerCase() // Use toLowerCase instead of toLocaleLowerCase
-  ) {
+  switch (weatherDescription.toLowerCase()) {
     case "clear sky":
-      return <FaSun {...iconProps} />; // Return the JSX element directly
+      return <FaSun {...iconProps} />;
     case "few clouds":
     case "scattered clouds":
     case "broken clouds":

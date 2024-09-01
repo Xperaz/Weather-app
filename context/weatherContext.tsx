@@ -5,6 +5,9 @@ interface WeatherContextType {
   city: string;
   setCity: (city: string) => void;
   weatherData: ReturnType<typeof useWeatherApi>;
+  favoriteCities: string[];
+  addCityToFavorites: (city: string) => void;
+  removeCityFromFavorites: (city: string) => void;
 }
 
 interface WeatherProviderProps {
@@ -16,6 +19,15 @@ const weatherContext = createContext<WeatherContextType | null>(null);
 export const WeatherProvider = ({ children }: WeatherProviderProps) => {
   const weatherData = useWeatherApi();
   const [city, setCity] = useState("");
+  const [favoriteCities, setFavoriteCities] = useState<string[]>([]);
+
+  const removeCityFromFavorites = (city: string) => {
+    setFavoriteCities((prev) => prev.filter((item) => item !== city));
+  };
+  const addCityToFavorites = (city: string) => {
+    if (favoriteCities.includes(city)) return;
+    setFavoriteCities((prev) => [...prev, city]);
+  };
 
   useEffect(() => {
     if (city.length === 0) return;
@@ -23,7 +35,16 @@ export const WeatherProvider = ({ children }: WeatherProviderProps) => {
   }, [city]);
 
   return (
-    <weatherContext.Provider value={{ city, setCity, weatherData }}>
+    <weatherContext.Provider
+      value={{
+        city,
+        setCity,
+        weatherData,
+        favoriteCities,
+        addCityToFavorites,
+        removeCityFromFavorites,
+      }}
+    >
       {children}
     </weatherContext.Provider>
   );

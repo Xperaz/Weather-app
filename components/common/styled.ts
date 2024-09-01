@@ -83,20 +83,81 @@ export const ErrorWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-export const CampaignWrapper = styled.div`
-  background-color: #e6f7fb;
-  color: #3096b4;
-  border: 1px solid #3096b4;
-  border-radius: 8px;
-  padding: 16px;
+export const CityListWrapper = styled.div`
+  background: linear-gradient(135deg, #41a7c4, #267d96);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  max-width: 600px;
+  margin: 20px auto;
+`;
+
+export const CityListTitle = styled.p`
+  font-size: 1.2em;
   text-align: center;
-  font-family: Arial, sans-serif;
-  font-size: 1em;
-  box-shadow: 0 2px 4px rgba(48, 150, 180, 0.1);
+  margin-bottom: 20px;
+`;
+
+export const CityList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+`;
+
+export const CityWrapper = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #d0edf3;
-    box-shadow: 0 4px 8px rgba(48, 150, 180, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const FavoriteCityInput = styled.input`
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  margin-top: 10px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
+
+export const FavoriteCityButton = styled.button`
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
   }
 `;
