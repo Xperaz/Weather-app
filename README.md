@@ -4,6 +4,8 @@ weather dashboard built with Next.js, TypeScript, and Styled Components.
 
 ## Features
 - Real-time weather information for any city
+- Ability to add and remove city to favorite list
+- Store the favorite city list in localStorage
 - Responsive design for desktop and mobile devices
 - Chart visualization for weather data
 - 7-day weather forecast
