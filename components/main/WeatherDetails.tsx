@@ -39,7 +39,7 @@ const WeatherDetails = ({
           <InfoDetailsItemWrapper>
             <WiHumidity
               style={{
-                fontSize: "5em",
+                fontSize: "4em",
                 color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,
@@ -54,7 +54,7 @@ const WeatherDetails = ({
           <InfoDetailsItemWrapper>
             <WiBarometer
               style={{
-                fontSize: "5em",
+                fontSize: "4em",
                 color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,

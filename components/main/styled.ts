@@ -40,9 +40,9 @@ export const LeftHeroInfo = styled.div`
   padding: 1rem;
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
 
     @media (min-width: 600px) {
@@ -114,6 +114,7 @@ export const StyledInfoDetails = styled.div`
   padding: 1rem;
   background-color: #fff;
   border-radius: 8px;
+  gap: 2rem;
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -126,7 +127,7 @@ export const StyledInfoDetails = styled.div`
 export const InfoDetailsItemWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 export const InfoDetailsItemLeft = styled.div`
@@ -143,8 +144,12 @@ export const InfoDetailsItem = styled.div`
   gap: 0.5rem;
 
   p {
-    font-size: 1.2em;
+    font-size: 0.8em;
     font-weight: 400;
+
+    @media (min-width: 600px) {
+      font-size: 1.2em;
+    }
   }
 `;
 
