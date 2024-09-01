@@ -10,7 +10,7 @@ import {
 } from "./styled";
 import { RxCross2 } from "react-icons/rx";
 
-const CampaignMessage = ({ message }: { message: string }) => {
+const FavoriteCities = ({ message }: { message: string }) => {
   const {
     setCity,
     favoriteCities,
@@ -19,7 +19,7 @@ const CampaignMessage = ({ message }: { message: string }) => {
   } = useWeatherContext();
 
   const [newCity, setNewCity] = useState("");
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null);
 
   const handleAddCity = () => {
     if (newCity.length === 0) return;
@@ -35,7 +35,7 @@ const CampaignMessage = ({ message }: { message: string }) => {
     <CityListWrapper>
       <CityListTitle>Favorite Cities</CityListTitle>
       <CityList>
-        {favoriteCities.map((cityName, index) => (
+        {favoriteCities?.map((cityName, index) => (
           <CityWrapper
             key={index + "_" + cityName}
             style={{
@@ -44,11 +44,12 @@ const CampaignMessage = ({ message }: { message: string }) => {
           >
             <RxCross2
               onClick={() => handleRemoveCity(cityName)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseEnter={() => setHoveredCity(cityName)}
+              onMouseLeave={() => setHoveredCity(null)}
               style={{
-                backgroundColor: hoveredIndex === index ? "red" : "transparent",
-                borderRadius: hoveredIndex === index ? "50%" : "0",
+                backgroundColor:
+                  hoveredCity === cityName ? "#FF7F50" : "transparent",
+                borderRadius: hoveredCity === cityName ? "50%" : "0",
               }}
             />
             <p onClick={() => setCity(cityName)}>{cityName}</p>
@@ -79,4 +80,4 @@ const CampaignMessage = ({ message }: { message: string }) => {
   );
 };
 
-export default CampaignMessage;
+export default FavoriteCities;

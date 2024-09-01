@@ -1,3 +1,4 @@
+import { useLocalStorage } from "@/utils/useLocalStorage";
 import useWeatherApi from "@/utils/useWeatherApi";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -5,7 +6,7 @@ interface WeatherContextType {
   city: string;
   setCity: (city: string) => void;
   weatherData: ReturnType<typeof useWeatherApi>;
-  favoriteCities: string[];
+  favoriteCities: string[] | null;
   addCityToFavorites: (city: string) => void;
   removeCityFromFavorites: (city: string) => void;
 }
@@ -19,14 +20,18 @@ const weatherContext = createContext<WeatherContextType | null>(null);
 export const WeatherProvider = ({ children }: WeatherProviderProps) => {
   const weatherData = useWeatherApi();
   const [city, setCity] = useState("");
-  const [favoriteCities, setFavoriteCities] = useState<string[]>([]);
+  const { storedValue: favoriteCities, setValue: setFavoriteCities } =
+    useLocalStorage<string[]>("favoriteCities", []);
 
   const removeCityFromFavorites = (city: string) => {
-    setFavoriteCities((prev) => prev.filter((item) => item !== city));
+    const updatedCities = favoriteCities?.filter((item) => item !== city);
+    setFavoriteCities(updatedCities || []);
   };
+
   const addCityToFavorites = (city: string) => {
-    if (favoriteCities.includes(city)) return;
-    setFavoriteCities((prev) => [...prev, city]);
+    if (!favoriteCities?.includes(city)) {
+      setFavoriteCities([...(favoriteCities ?? []), city]);
+    }
   };
 
   useEffect(() => {

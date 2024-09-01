@@ -6,13 +6,13 @@ import WeatherDetails from "./WeatherDetails";
 import ForecastStats from "./ForecastStats";
 import Loader from "../common/Loader";
 import Error from "../common/Error";
-import CampaignMessage from "../common/CampaignMessage";
+import FavoriteCities from "../common/FavoriteCities";
 
 const WeatherInfo = () => {
   const { weatherData, city } = useWeatherContext();
 
   if (!weatherData.currentWeather && city.length === 0) {
-    return <CampaignMessage message="Add your favorite city: " />;
+    return <FavoriteCities message="Add your favorite city: " />;
   }
 
   if (weatherData.isLoading) {

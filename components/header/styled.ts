@@ -12,6 +12,7 @@ export const StyledLogo = styled.h1`
   font-size: 1.5em;
   font-weight: 700;
   color: #3096b4;
+  cursor: pointer;
 
   @media (min-width: 475px) {
     font-size: 2em;

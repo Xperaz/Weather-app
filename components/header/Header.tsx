@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledLogo>SkyCast</StyledLogo>
+      <StyledLogo onClick={() => window.location.reload()}>SkyCast</StyledLogo>
       <StyledInputWrapper>
         <StyledInput
           type="text"
