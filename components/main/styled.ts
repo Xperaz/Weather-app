@@ -11,13 +11,18 @@ export const StyledWeatherWrapper = styled.div`
 `;
 
 export const StyledHero = styled.div`
-  background-image: url("/assets/hero-bg.png");
+  background-image: linear-gradient(
+      0deg,
+      rgba(48, 150, 180, 0.1),
+      rgba(48, 150, 180, 0.2)
+    ),
+    url("/assets/hero-bg.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   width: 100%;
-  height: 350px; // Adjust this value as needed
+  height: 350px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -33,20 +38,27 @@ export const LeftHeroInfo = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  z-index: 10;
 
-  // style inner h1
   h1 {
-    font-size: 4em;
+    font-size: 2.5em;
     color: #fff;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
+
+    @media (min-width: 600px) {
+      font-size: 4em;
+      font-weight: 700;
+    }
   }
 
   p {
-    font-size: 1.7em;
+    font-size: 1em;
     color: #fff;
     font-weight: 400;
+
+    @media (min-width: 600px) {
+      font-size: 1.7em;
+    }
   }
 `;
 
@@ -58,15 +70,23 @@ export const RightHeroInfo = styled.div`
   z-index: 10;
 
   p {
-    font-size: 1.7em;
+    font-size: 1em;
     color: #fff;
     font-weight: 400;
+
+    @media (min-width: 600px) {
+      font-size: 1.7em;
+    }
   }
 
   .day-time {
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 1.2em;
+    font-weight: 600;
     align-self: flex-end;
+
+    @media (min-width: 600px) {
+      font-size: 2em;
+    }
   }
 `;
 

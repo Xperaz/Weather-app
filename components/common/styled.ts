@@ -83,36 +83,20 @@ export const ErrorWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-const campaignPulse = keyframes`
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-`;
-
-export const InitialMessageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-top: 20rem;
-`;
-
-export const MessageContainer = styled.div`
+export const CampaignWrapper = styled.div`
+  background-color: #e6f7fb;
+  color: #3096b4;
+  border: 1px solid #3096b4;
+  border-radius: 8px;
+  padding: 16px;
   text-align: center;
-  padding: 2rem;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: ${campaignPulse} 2s ease-in-out infinite;
-`;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(48, 150, 180, 0.1);
+  transition: all 0.3s ease;
 
-export const MessageText = styled.div`
-  font-family: "Arial", sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: #d0edf3;
+    box-shadow: 0 4px 8px rgba(48, 150, 180, 0.2);
+  }
 `;

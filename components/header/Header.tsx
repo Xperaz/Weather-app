@@ -39,7 +39,7 @@ const Header = () => {
             right: "10px",
             top: "50%",
             transform: "translateY(-50%)",
-            color: "#7284ff",
+            color: "#3096b4",
             height: "20px",
             width: "20px",
           }}

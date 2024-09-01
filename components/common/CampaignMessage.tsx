@@ -1,14 +1,8 @@
 import React from "react";
-import { InitialMessageWrapper, MessageContainer, MessageText } from "./styled";
+import { CampaignWrapper } from "./styled";
 
 const CampaignMessage = ({ message }: { message: string }) => {
-  return (
-    <InitialMessageWrapper>
-      <MessageContainer>
-        <MessageText>{message}</MessageText>
-      </MessageContainer>
-    </InitialMessageWrapper>
-  );
+  return <CampaignWrapper>{message}</CampaignWrapper>;
 };
 
 export default CampaignMessage;

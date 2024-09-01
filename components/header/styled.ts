@@ -9,9 +9,13 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLogo = styled.h1`
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 700;
-  color: #7284ff;
+  color: #3096b4;
+
+  @media (min-width: 475px) {
+    font-size: 2em;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -19,9 +23,17 @@ export const StyledInput = styled.input`
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   outline: none;
-  width: 300px;
+  width: 200px;
   font-size: 1.1em;
   font-weight: 500;
+
+  @media (min-width: 600px) {
+    width: 300px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 400px;
+  }
 `;
 
 export const StyledInputWrapper = styled.div`

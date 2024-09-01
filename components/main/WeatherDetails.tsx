@@ -39,7 +39,7 @@ const WeatherDetails = ({
             <WiHumidity
               style={{
                 fontSize: "5em",
-                color: "#7284ff",
+                color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,
               }}
@@ -54,7 +54,7 @@ const WeatherDetails = ({
             <WiBarometer
               style={{
                 fontSize: "5em",
-                color: "#7284ff",
+                color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,
               }}
@@ -71,7 +71,7 @@ const WeatherDetails = ({
             <FiSunset
               style={{
                 fontSize: "4em",
-                color: "#7284ff",
+                color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,
               }}
@@ -86,7 +86,7 @@ const WeatherDetails = ({
             <FiSunrise
               style={{
                 fontSize: "4em",
-                color: "#7284ff",
+                color: "#3096B4",
                 fontWeight: 700,
                 lineHeight: 1,
               }}

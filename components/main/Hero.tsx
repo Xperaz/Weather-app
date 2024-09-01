@@ -3,9 +3,6 @@ import { LeftHeroInfo, RightHeroInfo, StyledHero } from "./styled";
 import { IoSunny } from "react-icons/io5";
 
 const Hero = ({ currentWeatherData }: { currentWeatherData: any }) => {
-  if (!currentWeatherData) {
-    return <div>Loading...</div>;
-  }
   const {
     name: cityName = "Unknown",
     sys: { country: countryName = "Unknown", sunrise = 0, sunset = 0 } = {},
@@ -23,9 +20,6 @@ const Hero = ({ currentWeatherData }: { currentWeatherData: any }) => {
   const formatDay = (timestamp: number): string => {
     return new Date(timestamp * 1000).toLocaleDateString([], {
       weekday: "long",
-      //   year: "numeric",
-      //   month: "long",
-      //   day: "numeric",
     });
   };
 

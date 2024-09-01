@@ -13,7 +13,7 @@ const WeatherInfo = () => {
 
   if (!weatherData.currentWeather && city.length === 0) {
     return (
-      <CampaignMessage message="Please enter a city name to get the weather details" />
+      <CampaignMessage message="Please enter a city name in search field  to get the weather details" />
     );
   }
 
