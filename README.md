@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Vanguard Weather-app assignment
 
-## Getting Started
+weather dashboard built with Next.js, TypeScript, and Styled Components.
 
-First, run the development server:
+## Features
+- Real-time weather information for any city
+- Responsive design for desktop and mobile devices
+- Chart visualization for weather data
+- 7-day weather forecast
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Technologies Used
+- Next.js
+- TypeScript
+- Styled Components
+- OpenWeather API
+- Chart.js
+- Docker
+
+## How to run?
+
+### First choice
+
+You can test the deployed app by following this link: [Weather-app](https://vanguard-weather.vercel.app/)
+
+### Second choice (using docker)
+
+> [!NOTE]  
+> For the second and third choices you will need to create `.env` file in the root project directory.
+
+#### Use this .env for testing:
+
+> I know it's a bad idea to put this information here, but just to make your life easier with testing.<br/>
+
 ```
+NEXT_PUBLIC_OPEN_WEATHER_API_KEY=0c8256bdec9643d424610cf3599010b2
+NEXT_PUBLIC_API_BASE=https://api.openweathermap.org/data/2.5
+``` 
+<br/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> [!IMPORTANT]  
+> I assume you have docker in your machine, and it's running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository
+2. Go to the root directory, then open your terminal and run: `docker compose up -d`
+3. Now you can see the app in your localhost: ``` localhost:3000 ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Third choice (Run app directly in your local)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository
+2. Go to the root project directory.
+3. Run ``` npm install ```.
+4. Run ``` npm run dev ```.
+5. Now you can see the app in your localhost ``` localhost:3000 ```
