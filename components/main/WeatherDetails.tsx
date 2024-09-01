@@ -9,11 +9,12 @@ import {
 } from "./styled";
 import { WiBarometer, WiDaySunny, WiHumidity } from "react-icons/wi";
 import { FiSunrise, FiSunset } from "react-icons/fi";
+import { currentWeatherResponseType } from "@/utils/useWeatherApi";
 
 const WeatherDetails = ({
   currentWeatherData,
 }: {
-  currentWeatherData: any;
+  currentWeatherData: currentWeatherResponseType;
 }) => {
   const sunsetTime = new Date(
     currentWeatherData.sys.sunset * 1000
@@ -29,7 +30,7 @@ const WeatherDetails = ({
     minute: "2-digit",
   });
 
-  const visibility = currentWeatherData.visibility / 1000; // Convert to km
+  const visibility = currentWeatherData.visibility / 1000;
 
   return (
     <InfoDetailsWrapper>

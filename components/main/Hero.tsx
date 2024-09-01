@@ -1,13 +1,20 @@
 import React from "react";
 import { LeftHeroInfo, RightHeroInfo, StyledHero } from "./styled";
 import { IoSunny } from "react-icons/io5";
+import getWeatherIcon from "@/utils/getWeatherIcon";
+import { currentWeatherResponseType } from "@/utils/useWeatherApi";
 
-const Hero = ({ currentWeatherData }: { currentWeatherData: any }) => {
+const Hero = ({
+  currentWeatherData,
+}: {
+  currentWeatherData: currentWeatherResponseType;
+}) => {
   const {
     name: cityName = "Unknown",
     sys: { country: countryName = "Unknown", sunrise = 0, sunset = 0 } = {},
     main: { temp: temperature = 0 } = {},
     dt = 0,
+    weather = [{ description: "clear sky" }],
   } = currentWeatherData;
 
   const formatTime = (timestamp: number): string => {
@@ -26,14 +33,16 @@ const Hero = ({ currentWeatherData }: { currentWeatherData: any }) => {
   return (
     <StyledHero>
       <LeftHeroInfo>
-        <IoSunny
-          style={{
-            fontSize: "3em",
-            color: "#fff",
-            fontWeight: 700,
-            lineHeight: 1,
-          }}
-        />
+        {getWeatherIcon(weather[0].description) || (
+          <IoSunny
+            style={{
+              fontSize: "3em",
+              color: "#fff",
+              fontWeight: 700,
+              lineHeight: 1,
+            }}
+          />
+        )}
         <h1>{temperature.toFixed(1)} °C</h1>
         <p>
           {cityName}, {countryName}

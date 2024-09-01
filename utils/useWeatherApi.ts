@@ -4,14 +4,38 @@ import axios from "axios";
 const API_KEY = process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY;
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 
-type ApiResponse = any; // I am using any here, because I don't know the exact shape of the response (Third-party API)
+export interface currentWeatherResponseType {
+  name: string;
+  sys: {
+    country: string;
+    sunrise: number;
+    sunset: number;
+  };
+  main: {
+    temp: number;
+    humidity: number;
+  };
+  dt: number;
+  weather: Array<{ description: string }>;
+  visibility: number;
+}
+
+export interface forecastListResponseType {
+  dt: number;
+  main: {
+    temp: number;
+  };
+}
+
+export interface forecastResponseType {
+  list: forecastListResponseType[];
+}
 
 interface WeatherApiState {
   isLoading: boolean;
   error: string | null;
-  currentWeather: ApiResponse | null;
-  forecast: ApiResponse | null;
-  hourlyTemperature: Array<{ time: string; temperature: number }> | null;
+  currentWeather: currentWeatherResponseType | null;
+  forecast: forecastResponseType | null;
 }
 
 const useWeatherApi = () => {
@@ -20,7 +44,6 @@ const useWeatherApi = () => {
     error: null,
     currentWeather: null,
     forecast: null,
-    hourlyTemperature: null,
   });
 
   const fetchWeatherData = async (cityName: string) => {
@@ -35,19 +58,11 @@ const useWeatherApi = () => {
         axios.get(forecastUrl),
       ]);
 
-      // Extract hourly temperature data from the forecast response
-      const hourlyTemperature =
-        forecastResponse.data.list?.map((item: any) => ({
-          time: item.dt_txt,
-          temperature: item.main?.temp,
-        })) || null;
-
       setState({
         isLoading: false,
         error: null,
         currentWeather: weatherResponse.data,
-        forecast: forecastResponse.data.list.slice(0, 5 * 8),
-        hourlyTemperature,
+        forecast: forecastResponse.data,
       });
     } catch (error) {
       let errorMessage = "An error occurred, please try again later.";

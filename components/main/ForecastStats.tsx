@@ -11,6 +11,10 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import {
+  forecastListResponseType,
+  forecastResponseType,
+} from "@/utils/useWeatherApi";
 
 ChartJS.register(
   CategoryScale,
@@ -22,14 +26,18 @@ ChartJS.register(
   Legend
 );
 
-const ForecastStasts = ({ forecastData }: { forecastData: any }) => {
-  const sevenDayForecast = forecastData.reduce((acc, item) => {
+const ForecastStasts = ({
+  forecastData,
+}: {
+  forecastData: forecastResponseType;
+}) => {
+  const sevenDayForecast = forecastData.list.reduce((acc, item) => {
     const date = new Date(item.dt * 1000).toLocaleDateString();
     if (!acc[date]) {
       acc[date] = item;
     }
     return acc;
-  }, {});
+  }, {} as { [key: string]: forecastListResponseType });
 
   const sevenDayData = Object.values(sevenDayForecast).slice(0, 7);
 
