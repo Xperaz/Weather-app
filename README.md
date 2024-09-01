@@ -18,6 +18,10 @@ weather dashboard built with Next.js, TypeScript, and Styled Components.
 - Chart.js
 - Docker
 
+## Demo video
+
+- [Demo Video](https://youtu.be/Uuvtgq8yK00)
+
 ## How to run?
 
 ### First choice
